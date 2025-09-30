@@ -15,16 +15,15 @@
     <div class="grid">
       {% for c in characters %}
       <article class="card" data-id="{{ c.slug }}">
-        <a href="#" class="card-link">
-          {% if c.get_image_src %}
-          <img src="{{ c.get_image_src }}" alt="{{ c.title }}" class="card-image">
-          {% endif %}
-          <div class="card-overlay">
-            <h3 class="card-title">{{ c.title }}</h3>
-            <p class="card-description">{{ c.summary|truncatewords:15 }}</p>
-          </div>
-        </a>
+        {% if c.get_image_src %}
+        <img src="{{ c.get_image_src }}" alt="{{ c.title }}" class="card-image">
+        <div class="card-overlay">
+          <h3 class="card-title">{{ c.title }}</h3>
+          <p class="card-description">{{ c.summary|truncatewords:15 }}</p>
+        </div>
+        {% endif %}
         <div class="card-content">
+          <h3 class="card-title">{{ c.title }}</h3>
           <p class="card-summary">{{ c.summary }}</p>
           <p class="keywords-label">TAGS</p>
           <ul class="keywords-list">
