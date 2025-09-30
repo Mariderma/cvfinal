@@ -6,20 +6,114 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ character.title }} - Detalle</title>
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <style>
+    .character-detail {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .character-header {
+      background: #1a1a1a;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .character-content {
+      padding: 2rem;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #666;
+      text-decoration: none;
+      font-family: 'Slabo 27px';
+    }
+    
+    .back-link:hover {
+      color: #333;
+    }
+    
+    .character-image {
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    
+    .detail-section {
+      margin-bottom: 2rem;
+    }
+    
+    .detail-section h3 {
+      font-family: 'Oswald';
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    
+    .keywords-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .keyword-tag {
+      background: #f5f5f5;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
   <main class="container">
-    <a href="{% url 'open_list' %}">&larr; Volver a la lista</a>
-    <h1>{{ character.title }}</h1>
-  {% if character.get_image_src %}
-  <img src="{{ character.get_image_src }}" alt="{{ character.title }}" style="max-width:240px;">
-  {% endif %}
-    <h3>Resumen</h3>
-    <p>{{ character.summary }}</p>
-    <h3>Descripción</h3>
-    <p>{{ character.description }}</p>
-    <h3>Palabras clave</h3>
-    <p>{{ character.keywords }}</p>
+    <div class="character-detail">
+      <div class="character-header">
+        <a href="{% url 'open_list' %}" class="back-link">&larr; Volver a la lista</a>
+        <h1>{{ character.title }}</h1>
+      </div>
+      
+      <div class="character-content">
+        {% if character.get_image_src %}
+        <div style="text-align: center;">
+          <img src="{{ character.get_image_src }}" alt="{{ character.title }}" class="character-image">
+        </div>
+        {% endif %}
+        
+        <div class="detail-section">
+          <h3>Resumen</h3>
+          <p>{{ character.summary }}</p>
+        </div>
+        
+        {% if character.description %}
+        <div class="detail-section">
+          <h3>Descripción</h3>
+          <p>{{ character.description|linebreaks }}</p>
+        </div>
+        {% endif %}
+        
+        {% if character.keywords %}
+        <div class="detail-section">
+          <h3>Palabras clave</h3>
+          <div class="keywords-tags">
+            {% for keyword in character.keywords.split %}
+            <span class="keyword-tag">{{ keyword }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
   </main>
 </body>
 </html>

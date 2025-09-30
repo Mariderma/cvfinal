@@ -14,23 +14,23 @@
 
     <div class="grid">
       {% for c in characters %}
-      <article class="card" data-id="{{ c.slug }}">
-        {% if c.get_image_src %}
-        <img src="{{ c.get_image_src }}" alt="{{ c.title }}" class="card-image">
-        {% endif %}
-        <div class="card-content">
-          <h3 class="card-title">{{ c.title }}</h3>
-          <p class="card-summary">{{ c.summary }}</p>
-          <div class="card-keywords">
-            <span class="keywords-label">Keywords:</span>
-            <span class="keywords-text">{{ c.keywords }}</span>
+      <article class="card">
+        <a href="{% url 'open_detail' c.slug %}" class="card-link">
+          {% if c.get_image_src %}
+          <img src="{{ c.get_image_src }}" alt="{{ c.title }}" class="card-image">
+          {% endif %}
+          <div class="card-content">
+            <h3 class="card-title">{{ c.title }}</h3>
+            <p class="card-summary">{{ c.summary }}</p>
+            <div class="card-keywords">
+              <span class="keywords-label">Keywords:</span>
+              <span class="keywords-text">{{ c.keywords }}</span>
+            </div>
           </div>
-        </div>
+        </a>
       </article>
       {% endfor %}
     </div>
   </main>
-
-  <script src="{% static 'js/gallery.js' %}"></script>
 </body>
 </html>

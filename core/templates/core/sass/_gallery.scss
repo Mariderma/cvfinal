@@ -1,4 +1,4 @@
-// _gallery.scss - Versión simplificada
+// _gallery.scss - Versión con enlaces
 @import 'https://fonts.googleapis.com/css?family=Oswald:300|Slabo+27px';
 
 // Variables
@@ -69,12 +69,18 @@ p {
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    cursor: pointer;
-
+    
     &:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
 }
 
 .card-image {
@@ -111,91 +117,6 @@ p {
     color: #666;
 }
 
-// Modal de vista detalle
-.imageview-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.imageview {
-    display: flex;
-    background: $white;
-    border-radius: 12px;
-    overflow: hidden;
-    max-width: 800px;
-    width: 90%;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.imageview-image {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-}
-
-.imageview-info {
-    padding: 2rem;
-    flex: 1;
-    position: relative;
-}
-
-.imageview-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: $red;
-    color: $white;
-    border: none;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-        background: darken($red, 10%);
-    }
-}
-
-.imageview-title {
-    @include header-font(1.8rem);
-    margin: 0 0 1rem 0;
-    color: $black;
-}
-
-.imageview-description {
-    @include body-font(1rem);
-    color: #666;
-    margin: 0 0 1.5rem 0;
-    line-height: 1.6;
-}
-
-.imageview-keywords {
-    @include body-font(0.9rem);
-    color: #888;
-}
-
-// Animación
-.fadeIn {
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
 // Responsive
 @media (max-width: 768px) {
     .grid {
@@ -205,16 +126,6 @@ p {
     
     .container {
         padding: 1rem;
-    }
-    
-    .imageview {
-        flex-direction: column;
-        max-width: 90%;
-    }
-    
-    .imageview-image {
-        width: 100%;
-        height: 200px;
     }
 }
 
