@@ -1,10 +1,26 @@
 <!doctype html>
 <html lang="es">
-<head>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">MiPortfolio</a>
+
+    <!-- Menú de navegación -->
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#companeros">Compañeros</a></li>
+        <li><a href="{% url 'contactame' %}">Contáctame</a></li>
+        <li><a href="{% url 'open_list' %}">Open</a></li>
+      </ul>
+    </nav>
+  </div>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hoja de Vida - Estudiante</title>
   <meta name="description" content="Hoja de vida del estudiante">
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-86D4N80YS3"></script>
 <script>
