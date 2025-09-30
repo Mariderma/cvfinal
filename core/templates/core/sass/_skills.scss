@@ -1,6 +1,191 @@
-
 @use 'variables' as vars;
 
-.skills { margin-top:vars.$space-4; }
-.skill-list { list-style:none; padding:0; display:flex; gap:vars.$space-2; flex-wrap:wrap; }
-.skill-list li { background:#eef2ff; padding:vars.$space-2 vars.$space-3; border-radius:999px; color:vars.$primary; }
+.skills { 
+    margin-top: vars.$space-4;
+    
+    h2 {
+        text-align: center;
+        margin-bottom: vars.$space-6;
+        color: vars.$primary;
+        font-size: 2.5rem;
+    }
+    
+    h3 {
+        color: vars.$dark;
+        margin-bottom: vars.$space-4;
+        font-size: 1.5rem;
+        border-bottom: 2px solid vars.$primary;
+        padding-bottom: vars.$space-2;
+    }
+}
+
+// Habilidades con barras de progreso
+.skills-section {
+    margin-bottom: vars.$space-6;
+}
+
+.skills-grid {
+    display: grid;
+    gap: vars.$space-4;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.skill-item {
+    background: white;
+    padding: vars.$space-4;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: vars.$space-3;
+}
+
+.skill-name {
+    font-weight: 600;
+    color: vars.$dark;
+    font-size: 1.1rem;
+}
+
+.skill-percentage {
+    color: vars.$primary;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, vars.$primary, lighten(vars.$primary, 15%));
+    border-radius: 10px;
+    width: 0;
+    transition: width 1.5s ease-in-out;
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(90deg, 
+            transparent, 
+            rgba(255, 255, 255, 0.4), 
+            transparent);
+        animation: shimmer 2s infinite;
+    }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+// Certificaciones
+.certifications-section {
+    margin-top: vars.$space-6;
+}
+
+.certifications-grid {
+    display: grid;
+    gap: vars.$space-4;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.certification-item {
+    background: white;
+    padding: vars.$space-4;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-start;
+    gap: vars.$space-3;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.certification-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    background: vars.$primary;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certification-content {
+    flex: 1;
+}
+
+.certification-content h4 {
+    margin: 0 0 vars.$space-1 0;
+    color: vars.$dark;
+    font-size: 1.1rem;
+}
+
+.certification-issuer {
+    color: vars.$primary;
+    font-weight: 600;
+    margin: 0 0 vars.$space-2 0;
+    font-size: 0.9rem;
+}
+
+.certification-desc {
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .skills-grid,
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .certification-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .certification-icon {
+        align-self: center;
+    }
+    
+    .skill-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: vars.$space-1;
+    }
+    
+    .skill-percentage {
+        align-self: flex-end;
+    }
+}
