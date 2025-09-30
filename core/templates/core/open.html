@@ -14,10 +14,10 @@
 
     <div class="grid">
       {% for c in characters %}
-      <article class="card">
-        <a href="{% url 'open_detail' c.slug %}">
+      <article class="card" data-id="{{ c.slug }}">
+        <a href="#" class="card-link">
           {% if c.get_image_src %}
-          <img src="{{ c.get_image_src }}" alt="{{ c.title }}">
+          <img src="{{ c.get_image_src }}" alt="{{ c.title }}" class="card-image">
           {% endif %}
           <h3>{{ c.title }}</h3>
         </a>
@@ -27,5 +27,8 @@
       {% endfor %}
     </div>
   </main>
+
+  <!-- Incluye el JavaScript al final del body -->
+  <script src="{% static 'js/gallery.js' %}"></script>
 </body>
 </html>
