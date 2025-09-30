@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hoja de Vida - Estudiante</title>
+  <meta name="description" content="Hoja de vida del estudiante">
+  <!-- GOOGLE_ANALYTICS_PLACEHOLDER -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">MiPortfolio</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="profile">
+      <div class="profile-left">
+  <!-- Foto placeholder -->
+  <img src="{% static 'assets/placeholder-profile.jpg' %}" alt="Foto del estudiante" class="profile-photo">
+      </div>
+      <div class="profile-right">
+        <h1>Mariam Daniela Gutierrez Alfonso</h1>
+        <p class="role">Estudiante de Ingeniería con alto interés en el análisis de datos</p>
+
+        <h2>Datos de contacto</h2>
+        <ul>
+          <li>Email: <a href="mailto:mariamdagutierrez@gmail.com">mariamdagutierrez@gmail.com</a></li>
+          <li>Teléfono: +57 316 770 7091</li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/mariamdagutierrez/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="skills">
+      <h2>Skills</h2>
+      <ul class="skill-list">
+        <li>Python</li>
+        <li>Django</li>
+        <li>HTML / CSS / JS</li>
+        <li>SQL</li>
+      </ul>
+    </section>
+
+    <section class="portfolio">
+      <h2>Proyectos</h2>
+      <div class="projects">
+        <article class="project">
+          <img src="{% static 'assets/placeholder-project-1-800w.jpg' %}" alt="Proyecto 1 - placeholder">
+          <h3>Colibri</h3>
+          <p>Un aplicativo web para el reporte y concientizacion de la preservación de fauna y flora colombiana.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="banners">
+      <h2>Compañeros</h2>
+      <p>A continuación hay banners que redirigen a páginas de tus compañeros con parámetros UTM (placeholders):</p>
+
+      <!-- Namespaced carousel -->
+      <div class="comp-carousel">
+        <div class="slider">
+          <div class="track banner-list">
+            <article class="project-card" role="article">
+              <a class="banner" href="https://ejemplo.com/compa1?utm_source=site&utm_medium=banner&utm_campaign=compa1" target="_blank" rel="noopener noreferrer">
+                <img class="project-card__bg" src="{% static 'assets/banner-compa1.jpg' %}" alt="Banner compañero 1 - placeholder">
+                <div class="project-card__content">
+                  <h3 class="project-card__title">Catalina Alejandra Quijano Lopez</h3>
+                  <p class="project-card__desc">Ingeniera de Software, apasionada por la tecnología y el aprendizaje continuo.</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-card" role="article">
+              <a class="banner" href="https://ejemplo.com/compa2?utm_source=site&utm_medium=banner&utm_campaign=compa2" target="_blank" rel="noopener noreferrer">
+                <img class="project-card__bg" src="{% static 'assets/banner-compa2.jpg' %}" alt="Banner compañero 2 - placeholder">
+                <div class="project-card__content">
+                  <h3 class="project-card__title">Julian Mauricio Mendoza Ochoa</h3>
+                  <p class="project-card__desc">Ingeniero de Software, entusiasta de las telecomunicaciones y las tecnologias complejas.</p>
+                </div>
+              </a>
+            </article>
+                        <article class="project-card" role="article">
+              <a class="banner" href="https://ejemplo.com/compa2?utm_source=site&utm_medium=banner&utm_campaign=compa2" target="_blank" rel="noopener noreferrer">
+                <img class="project-card__bg" src="{% static 'assets/banner-compa3.jpg' %}" alt="Banner compañero 2 - placeholder">
+                <div class="project-card__content">
+                  <h3 class="project-card__title">William Andres Peña Vargas</h3>
+                  <p class="project-card__desc">Ingeniero de Software, apasionado por la innovación y el desarrollo de soluciones tecnológicas.</p>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <!-- controls & dots will be created by JS if missing -->
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Estudiante</p>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

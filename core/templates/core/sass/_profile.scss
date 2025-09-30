@@ -1,0 +1,11 @@
+
+@use 'variables' as vars;
+
+.profile {
+  display: flex;
+  gap: vars.$gap;
+  align-items: flex-start;
+  .profile-left { flex: 0 0 220px; }
+  .profile-right { flex: 1; }
+  .profile-photo { width:100%; border-radius:vars.$radius; }
+}

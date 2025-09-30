@@ -1,0 +1,41 @@
+@use 'variables' as vars;
+@use 'personal';
+@use 'teaser';
+@use 'profile';
+@use 'skills';
+@use 'signup';
+@use 'carousel';
+
+* { box-sizing: border-box; }
+body { font-family: vars.$font-sans; margin:0; color:#222; background:vars.$bg; }
+.container { max-width: vars.$max-width; margin:0 auto; padding:1rem; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
+.card { background:#fff; padding:1rem; border-radius:vars.$radius; box-shadow:0 1px 4px rgba(0,0,0,0.04); }
+
+/* center text inside the card */
+.card {
+	text-align: center;
+}
+.card a { display: block; color: inherit; text-decoration: none; }
+.card h3 { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+.card .summary, .card .keywords { margin: 0.4rem 0; color: #666; }
+
+/* Make images inside cards square and consistent */
+.card img {
+	/* Fixed square thumbnail size requested by the user */
+	width: 240px;
+	height: 240px;
+	object-fit: cover;
+	display: block;
+	border-radius: 0.5rem;
+	margin: 0 0 0.75rem 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (max-width: 767px) {
+	.card img {
+		width: 180px;
+		height: 180px;
+	}
+}

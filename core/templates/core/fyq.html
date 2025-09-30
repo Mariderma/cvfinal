@@ -1,0 +1,61 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preguntas Frecuentes (FAQ)</title>
+  <meta name="description" content="Preguntas frecuentes gestionadas desde el CMS.">
+  <!-- CSS y JS se añadirán posteriormente -->
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Preguntas Frecuentes</h1>
+      <p>Las preguntas y respuestas pueden gestionarse desde el CMS (pendiente de implementar). Por ahora este es el HTML estático con comportamiento de colapsado nativo.</p>
+    </header>
+
+    <section class="faq-list" aria-label="Preguntas frecuentes">
+      <!-- Cada ítem debe tener título y respuesta. Reemplaza/gestiona desde el CMS posteriormente. -->
+
+      <article class="faq-item">
+        <details>
+          <summary>¿Cómo puedo contactarme con el estudiante?</summary>
+          <div class="faq-answer">
+            <p>Puedes utilizar la página de contacto disponible en <a href="/contactame/">Contáctame</a> o enviar un correo a <em>estudiante@example.com</em>. (placeholder)</p>
+          </div>
+        </details>
+      </article>
+
+      <article class="faq-item">
+        <details>
+          <summary>¿Qué tecnologías se usan en este proyecto?</summary>
+          <div class="faq-answer">
+            <p>Este proyecto utiliza Python y Django en el backend y HTML/CSS/JS en el frontend. Reemplaza o amplia según la documentación del curso.</p>
+          </div>
+        </details>
+      </article>
+
+      <article class="faq-item">
+        <details>
+          <summary>¿Puedo ver el portafolio completo?</summary>
+          <div class="faq-answer">
+            <p>El portafolio aparece en la sección de la página principal. Cada proyecto tendrá una página dedicada próximamente.</p>
+          </div>
+        </details>
+      </article>
+
+      <!-- Ejemplo adicional (placeholder) -->
+      <article class="faq-item">
+        <details>
+          <summary>¿Cómo se gestionan las preguntas desde el CMS?</summary>
+          <div class="faq-answer">
+            <p>Próximamente crearemos un modelo `FAQ` y una interfaz en el admin para añadir/editar preguntas y respuestas. Por ahora es estático.</p>
+          </div>
+        </details>
+      </article>
+
+    </section>
+  </main>
+</body>
+</html>

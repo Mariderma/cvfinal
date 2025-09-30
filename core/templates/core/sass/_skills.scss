@@ -1,0 +1,6 @@
+
+@use 'variables' as vars;
+
+.skills { margin-top:vars.$space-4; }
+.skill-list { list-style:none; padding:0; display:flex; gap:vars.$space-2; flex-wrap:wrap; }
+.skill-list li { background:#eef2ff; padding:vars.$space-2 vars.$space-3; border-radius:999px; color:vars.$primary; }

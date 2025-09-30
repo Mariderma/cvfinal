@@ -1,0 +1,800 @@
+.brand {
+  font-weight: 700;
+  color: #0b3d91;
+  font-size: 1.2rem;
+}
+
+.site-header {
+  background: #0b3d91;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.site-footer {
+  background: #f7f8fb;
+  padding: 1rem 0;
+  margin-top: 1.5rem;
+}
+
+.hero {
+  padding: 1.5rem 0;
+  background: linear-gradient(180deg, hsl(225, 33.3333333333%, 101.6470588235%), #ffffff);
+}
+
+.hero-img {
+  max-width: 320px;
+  border-radius: 8px;
+}
+
+.profile {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.profile .profile-left {
+  flex: 0 0 220px;
+}
+.profile .profile-right {
+  flex: 1;
+}
+.profile .profile-photo {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.skills {
+  margin-top: 1.5rem;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.skill-list li {
+  background: #eef2ff;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  color: #0b3d91;
+}
+
+body {
+  font-family: "Libre Franklin", sans-serif;
+  background: #ffffff;
+  color: #111;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2.5rem auto;
+  padding: 1.25rem 1.5rem;
+}
+
+.notice.success {
+  background: #e9f9ef;
+  border-left: 4px solid #0b3d91;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  color: rgb(7.4038461538, 41.0576923077, 97.5961538462);
+}
+
+h1 {
+  margin: 0 0 1rem 0;
+  font-size: 1.6rem;
+}
+
+form#contactForm {
+  display: grid;
+  gap: 0.75rem;
+  background: #fbfcff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(11, 61, 145, 0.06);
+  max-width: 520px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #0b3d91;
+}
+
+input[type=text],
+input[type=email],
+textarea {
+  width: 100%;
+  padding: 0.5rem 0 0.25rem 0;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #c8d0e9;
+  background: transparent;
+  font-size: 0.95rem;
+  color: #111;
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #0b3d91;
+  box-shadow: 0 4px 18px rgba(11, 61, 145, 0.08);
+}
+
+/* Hide honeypot field visually but keep it in DOM */
+input[name=hp], input[type=hidden][name=hp] {
+  display: none !important;
+}
+
+.errorlist {
+  color: #fb5b87;
+  margin: 0 0 0.25rem 0;
+  padding-left: 1rem;
+}
+
+button[type=submit] {
+  background: #000;
+  color: #a3c3e0;
+  border: none;
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  align-self: start;
+  box-shadow: 0 6px 0 0 rgb(98, 137.25, 255);
+  border-top: 4px solid rgba(54, 196, 236, 0.852);
+}
+
+button[type=submit]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 640px) {
+  .container {
+    margin: 1rem;
+    padding: 0.5rem;
+  }
+  form#contactForm {
+    padding: 0.75rem;
+  }
+  h1 {
+    font-size: 1.4rem;
+  }
+}
+/* Card / auth demo styles (adapted from the asset) */
+.wrap {
+  display: block;
+}
+
+.auth-area {
+  display: flex;
+  gap: 1.5rem;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 20px 60px rgba(11, 61, 145, 0.06);
+  max-width: 1100px;
+  width: 100%;
+}
+
+.auth-card__side {
+  padding: 2rem;
+  flex: 1 1 50%;
+}
+
+.auth-card__side.left {
+  background: linear-gradient(120deg, rgb(220.4, 229.05, 255), transparent 60%);
+  min-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 320px;
+}
+
+.auth-card__side.right {
+  background: white;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  font-family: "VT323", monospace;
+  font-size: 96px;
+  line-height: 0.8;
+  color: rgb(9.2019230769, 51.0288461538, 121.2980769231);
+  margin: 0;
+  text-align: center;
+}
+
+.glitch {
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+/* Animated glitch overlay */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.glitch::before {
+  color: #fb5b87;
+  mix-blend-mode: screen;
+  clip-path: inset(0 0 0 0);
+  animation: glitch-anim 2.6s infinite linear;
+  opacity: 0.85;
+}
+
+.glitch::after {
+  color: rgb(3.8076923077, 21.1153846154, 50.1923076923);
+  mix-blend-mode: multiply;
+  clip-path: inset(0 0 0 0);
+  animation: glitch-anim 3.1s infinite linear reverse;
+  opacity: 0.7;
+}
+
+/* Slight shake on the base element to make effect more dynamic */
+.glitch {
+  animation: glitch-shift 3.6s infinite linear;
+}
+
+@keyframes glitch-anim {
+  0% {
+    transform: translate(0, 0);
+    clip-path: inset(0% 0 0% 0);
+  }
+  8% {
+    transform: translate(-2px, -1px);
+    clip-path: inset(10% 0 60% 0);
+  }
+  16% {
+    transform: translate(2px, 1px);
+    clip-path: inset(40% 0 30% 0);
+  }
+  24% {
+    transform: translate(-1px, 2px);
+    clip-path: inset(20% 0 50% 0);
+  }
+  32% {
+    transform: translate(2px, -2px);
+    clip-path: inset(60% 0 10% 0);
+  }
+  40% {
+    transform: translate(0, 0);
+    clip-path: inset(0% 0 0% 0);
+  }
+  100% {
+    transform: translate(0, 0);
+    clip-path: inset(0% 0 0% 0);
+  }
+}
+@keyframes glitch-shift {
+  0% {
+    transform: none;
+  }
+  20% {
+    transform: translateX(-1px);
+  }
+  40% {
+    transform: translateX(1px);
+  }
+  60% {
+    transform: translateX(-1px);
+  }
+  80% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: none;
+  }
+}
+.auth-card.registration .auth-card__side.left {
+  background: radial-gradient(circle farthest-corner at 20% 20%, rgb(20.7692307692, 101.5384615385, 237.2307692308) 0%, transparent 30%);
+}
+
+.auth-card.signin .auth-card__side.left {
+  background: radial-gradient(circle farthest-corner at 20% 20%, rgb(7.4038461538, 41.0576923077, 97.5961538462) 0%, #000 40%);
+  color: #fff;
+}
+
+.password {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password input {
+  padding-right: 40px;
+}
+
+.password-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.password-icon .fa {
+  font-size: 1rem;
+}
+
+/* Small screen layout */
+@media (max-width: 900px) {
+  .auth-area {
+    flex-direction: column;
+  }
+  .auth-card {
+    flex-direction: column;
+  }
+  .auth-card__side {
+    padding: 1.25rem;
+  }
+  .logo-text {
+    font-size: 52px;
+  }
+}
+/* right side layout */
+.auth-card__side.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.asset-heart {
+  width: 110px;
+  height: auto;
+  margin: 0.5rem 0 1rem 0;
+}
+
+/* Namespace everything inside .comp-carousel to avoid global collisions */
+.comp-carousel {
+  --gap: 1.25rem;
+  --speed: 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --closed: 5rem;
+  --open: 30rem;
+  --accent: #ff6b35;
+  /* carousel local base */
+  font-family: Inter, sans-serif;
+  color: #919299;
+  /* Also expand on hover or keyboard focus so UI responds without JS */
+  /* reveal inner content on hover/focus like the [active] state */
+}
+.comp-carousel * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.comp-carousel .head {
+  max-width: 1400px;
+  margin: auto;
+  padding: 70px 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+.comp-carousel .head h2 {
+  font: 400 1.5rem/1.2 Inter, sans-serif;
+  color: #fff;
+}
+@media (min-width: 1024px) {
+  .comp-carousel .head h2 {
+    font-size: 2.25rem;
+  }
+}
+.comp-carousel .nav-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.055);
+  color: #fff;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.comp-carousel .nav-btn:hover {
+  background: var(--accent);
+}
+.comp-carousel .nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.comp-carousel .slider {
+  max-width: 1400px;
+  margin: auto;
+  /* allow cards to expand and overlap neighbors */
+  overflow: visible;
+}
+.comp-carousel .controls {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.comp-carousel .track {
+  display: flex;
+  gap: var(--gap);
+  align-items: flex-start;
+  justify-content: center;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 40px;
+}
+.comp-carousel .track::-webkit-scrollbar {
+  display: none;
+}
+.comp-carousel .project-card {
+  position: relative;
+  flex: 0 0 var(--closed);
+  height: 26rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex-basis var(--speed), transform var(--speed);
+  z-index: 1;
+}
+.comp-carousel .project-card[active] {
+  flex-basis: var(--open);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+  z-index: 3;
+  transform: translateY(-6px) scale(1.02);
+}
+.comp-carousel .project-card:hover,
+.comp-carousel .project-card:focus-within {
+  flex-basis: var(--open);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+  z-index: 3;
+}
+.comp-carousel .project-card__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75) saturate(75%);
+  transition: filter 0.3s, transform var(--speed);
+}
+.comp-carousel .project-card:hover .project-card__bg {
+  filter: brightness(0.9) saturate(100%);
+  transform: scale(1.06);
+}
+.comp-carousel .project-card:focus-within .project-card__bg {
+  filter: brightness(0.9) saturate(100%);
+  transform: scale(1.06);
+}
+.comp-carousel .project-card__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0;
+  background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.85) 100%);
+  z-index: 2;
+}
+.comp-carousel .project-card__title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.35rem;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+.comp-carousel .project-card__thumb,
+.comp-carousel .project-card__desc,
+.comp-carousel .project-card__btn {
+  display: none;
+}
+.comp-carousel .project-card:hover .project-card__content,
+.comp-carousel .project-card:focus-within .project-card__content {
+  flex-direction: row;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  gap: 1.1rem;
+}
+.comp-carousel .project-card:hover .project-card__title,
+.comp-carousel .project-card:focus-within .project-card__title {
+  writing-mode: horizontal-tb;
+  transform: none;
+  font-size: 2.4rem;
+}
+.comp-carousel .project-card:hover .project-card__thumb,
+.comp-carousel .project-card:hover .project-card__desc,
+.comp-carousel .project-card:hover .project-card__btn,
+.comp-carousel .project-card:focus-within .project-card__thumb,
+.comp-carousel .project-card:focus-within .project-card__desc,
+.comp-carousel .project-card:focus-within .project-card__btn {
+  display: block;
+}
+.comp-carousel .project-card[active] .project-card__content {
+  flex-direction: row;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  gap: 1.1rem;
+}
+.comp-carousel .project-card[active] .project-card__title {
+  writing-mode: horizontal-tb;
+  transform: none;
+  font-size: 2.4rem;
+}
+.comp-carousel .project-card[active] .project-card__thumb,
+.comp-carousel .project-card[active] .project-card__desc,
+.comp-carousel .project-card[active] .project-card__btn {
+  display: block;
+}
+.comp-carousel .project-card__thumb {
+  /* make thumbnails square and consistent */
+  width: 120px;
+  height: 120px;
+  border-radius: 0.45rem;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+.comp-carousel .project-card__desc {
+  color: #ddd;
+  font-size: 1rem;
+  line-height: 1.4;
+  max-width: 16rem;
+}
+.comp-carousel .project-card__btn {
+  padding: 0.55rem 1.3rem;
+  border: none;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.comp-carousel .project-card__btn:hover {
+  background: #ff824f;
+}
+.comp-carousel .dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 20px 0;
+}
+.comp-carousel .dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.comp-carousel .dot.active {
+  background: var(--accent);
+  transform: scale(1.2);
+}
+@media (max-width: 767px) {
+  .comp-carousel :root {
+    --closed: 4rem;
+    --open: 22rem;
+  }
+  .comp-carousel .head {
+    padding: 50px 20px 30px;
+  }
+  .comp-carousel .track {
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 0;
+  }
+  .comp-carousel .project-card {
+    height: 20rem;
+  }
+  .comp-carousel .project-card__title {
+    font-size: 1.1rem;
+    writing-mode: horizontal-tb;
+    transform: none;
+    text-align: center;
+    padding-inline: 0.3rem;
+  }
+  .comp-carousel .nav-btn {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 767px) {
+  .comp-carousel :root {
+    --closed: 100%;
+    --open: 100%;
+    --gap: 0.8rem;
+  }
+  .comp-carousel .head {
+    padding: 30px 15px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .comp-carousel .slider {
+    padding: 0 15px;
+  }
+  .comp-carousel .track {
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    gap: 0.8rem;
+    padding-bottom: 20px;
+  }
+  .comp-carousel .project-card {
+    height: auto;
+    min-height: 80px;
+    flex: 0 0 auto;
+    width: 100%;
+    scroll-snap-align: start;
+  }
+  .comp-carousel .project-card[active] {
+    min-height: 300px;
+    transform: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+  .comp-carousel .project-card__content {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1rem;
+    align-items: center;
+    gap: 1rem;
+  }
+  .comp-carousel .project-card__title {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 1.2rem;
+    margin-right: auto;
+  }
+  .comp-carousel .project-card__thumb,
+  .comp-carousel .project-card__desc,
+  .comp-carousel .project-card__btn {
+    display: none;
+  }
+  .comp-carousel .project-card[active] .project-card__content {
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+  .comp-carousel .project-card[active] .project-card__title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+  }
+  .comp-carousel .project-card[active] .project-card__thumb {
+    /* larger square on active mobile card */
+    width: 200px;
+    height: 200px;
+    border-radius: 0.35rem;
+    margin-bottom: 1rem;
+  }
+  .comp-carousel .project-card[active] .project-card__desc {
+    font-size: 0.95rem;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  .comp-carousel .project-card[active] .project-card__btn {
+    align-self: center;
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem;
+  }
+  .comp-carousel .dots {
+    display: none;
+  }
+  .comp-carousel .controls {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 15px 20px;
+  }
+  .comp-carousel .nav-btn {
+    position: static;
+    transform: none;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin: 0;
+  color: #222;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* center text inside the card */
+.card {
+  text-align: center;
+}
+
+.card a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card .summary, .card .keywords {
+  margin: 0.4rem 0;
+  color: #666;
+}
+
+/* Make images inside cards square and consistent */
+.card img {
+  /* Fixed square thumbnail size requested by the user */
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.5rem;
+  margin: 0 0 0.75rem 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 767px) {
+  .card img {
+    width: 180px;
+    height: 180px;
+  }
+}

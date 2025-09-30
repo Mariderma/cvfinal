@@ -1,0 +1,78 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contáctame</title>
+  <!-- External fonts used by the asset -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <!-- Font Awesome (asset used v5.8.1) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <div class="container">
+    {% if success %}
+      <div class="notice success">Gracias. Tu mensaje fue recibido.</div>
+    {% endif %}
+
+    <div class="auth-area">
+      <div class="auth-card">
+        <div class="auth-card__side left">
+          <!-- decorative side similar to the asset -->
+          <h1 class="logo-text"><br/>Contact me!</h1>
+        </div>
+        <div class="auth-card__side right">
+          <h2 class="glitch" data-text="Welcome">Welcome</h2>
+          <img src="{% static 'assets/contact-icon.png' %}" alt="decor" class="asset-heart" />
+          <form id="contactForm" method="post" novalidate>
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <label for="id_name">Nombre</label>
+      {{ form.name.errors }}
+      {{ form.name }}
+
+      <label for="id_email">Email</label>
+      {{ form.email.errors }}
+      {{ form.email }}
+
+      <label for="id_subject">Asunto</label>
+      {{ form.subject.errors }}
+      {{ form.subject }}
+
+      <label for="id_message">Mensaje</label>
+      {{ form.message.errors }}
+      {{ form.message }}
+
+      <!-- Honeypot field (hidden) -->
+      {{ form.hp }}
+
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Client-side validation
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      var name = document.getElementById('id_name');
+      var email = document.getElementById('id_email');
+      var message = document.getElementById('id_message');
+      var errors = [];
+      if (!name.value.trim()) errors.push('El nombre es obligatorio');
+      if (!email.value.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) errors.push('Email inválido');
+      if (!message.value.trim()) errors.push('El mensaje es obligatorio');
+      if (errors.length) {
+        e.preventDefault();
+        alert(errors.join('\n'));
+      }
+    });
+  </script>
+  <!-- Font Awesome already included in head; react demo removed to avoid duplicated UI -->
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personajes - Grid</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <main class="container">
+    <h1>Personajes (placeholder)</h1>
+    <p>Listado en formato grid de personajes de videojuegos. Gestionado desde el CMS en futuras iteraciones.</p>
+
+    <div class="grid">
+      {% for c in characters %}
+      <article class="card">
+        <a href="{% url 'open_detail' c.slug %}">
+          {% if c.get_image_src %}
+          <img src="{{ c.get_image_src }}" alt="{{ c.title }}">
+          {% endif %}
+          <h3>{{ c.title }}</h3>
+        </a>
+        <p class="summary">{{ c.summary }}</p>
+        <p class="keywords">Keywords: {{ c.keywords }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </main>
+</body>
+</html>

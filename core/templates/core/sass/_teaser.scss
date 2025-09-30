@@ -1,0 +1,6 @@
+
+@use 'sass:color';
+@use 'variables' as vars;
+
+.hero { padding: vars.$space-4 0; background: linear-gradient(180deg, color.adjust(vars.$surface, $lightness: 4%), vars.$bg); }
+.hero-img { max-width:320px; border-radius:vars.$radius; }

@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ character.title }} - Detalle</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <main class="container">
+    <a href="{% url 'open_list' %}">&larr; Volver a la lista</a>
+    <h1>{{ character.title }}</h1>
+  {% if character.get_image_src %}
+  <img src="{{ character.get_image_src }}" alt="{{ character.title }}" style="max-width:240px;">
+  {% endif %}
+    <h3>Resumen</h3>
+    <p>{{ character.summary }}</p>
+    <h3>Descripción</h3>
+    <p>{{ character.description }}</p>
+    <h3>Palabras clave</h3>
+    <p>{{ character.keywords }}</p>
+  </main>
+</body>
+</html>
