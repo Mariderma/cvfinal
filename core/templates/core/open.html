@@ -9,7 +9,7 @@
 </head>
 <body>
   <main class="container">
-    <h1>Personajes (placeholder)</h1>
+    <h1>Personajes</h1>
     <p>Listado en formato grid de personajes de videojuegos. Gestionado desde el CMS en futuras iteraciones.</p>
 
     <div class="grid">
@@ -19,16 +19,27 @@
           {% if c.get_image_src %}
           <img src="{{ c.get_image_src }}" alt="{{ c.title }}" class="card-image">
           {% endif %}
-          <h3>{{ c.title }}</h3>
+          <div class="card-overlay">
+            <h3 class="card-title">{{ c.title }}</h3>
+            <p class="card-description">{{ c.summary|truncatewords:15 }}</p>
+          </div>
         </a>
-        <p class="summary">{{ c.summary }}</p>
-        <p class="keywords">Keywords: {{ c.keywords }}</p>
+        <div class="card-content">
+          <p class="card-summary">{{ c.summary }}</p>
+          <p class="keywords-label">TAGS</p>
+          <ul class="keywords-list">
+            {% if c.keywords %}
+              {% for keyword in c.keywords.split %}
+                <li class="keyword-tag">{{ keyword }}</li>
+              {% endfor %}
+            {% endif %}
+          </ul>
+        </div>
       </article>
       {% endfor %}
     </div>
   </main>
 
-  <!-- Incluye el JavaScript al final del body -->
   <script src="{% static 'js/gallery.js' %}"></script>
 </body>
 </html>

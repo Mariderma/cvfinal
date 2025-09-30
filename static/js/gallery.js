@@ -13,14 +13,14 @@ class CharacterGallery {
     }
 
     loadDataFromDOM() {
-        // Extrae los datos directamente del DOM (de las tarjetas renderizadas por Django)
         const cards = document.querySelectorAll('.card');
         this.data = Array.from(cards).map(card => {
             return {
                 slug: card.dataset.id,
-                title: card.querySelector('h3').textContent,
-                summary: card.querySelector('.summary').textContent.replace('Keywords:', '').trim(),
-                keywords: card.querySelector('.keywords').textContent.replace('Keywords:', '').trim(),
+                title: card.querySelector('.card-title').textContent,
+                summary: card.querySelector('.card-summary').textContent,
+                keywords: card.querySelector('.keywords-list') ? 
+                    Array.from(card.querySelectorAll('.keyword-tag')).map(tag => tag.textContent).join(', ') : '',
                 get_image_src: card.querySelector('img') ? card.querySelector('img').src : null
             };
         });
@@ -39,14 +39,13 @@ class CharacterGallery {
             }
         });
 
-        // Event listener para el botón de cerrar
         document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('imageview-close')) {
+            if (e.target.classList.contains('imageview-close') || 
+                e.target.classList.contains('imageview-wrapper')) {
                 this.closeImageView();
             }
         });
 
-        // Cerrar con ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.imageView) {
                 this.closeImageView();
@@ -55,16 +54,13 @@ class CharacterGallery {
     }
 
     openImageView(characterId) {
-        const character = this.data.find(char => 
-            (char.id && char.id == characterId) || char.slug === characterId
-        );
+        const character = this.data.find(char => char.slug === characterId);
         
         if (!character) return;
 
         this.activeID = characterId;
         this.imageView = true;
 
-        // Crear y mostrar la vista de imagen
         this.renderImageView(character);
     }
 
@@ -72,52 +68,52 @@ class CharacterGallery {
         const imageViewHTML = `
             <div class="imageview-wrapper fadeIn">
                 <div class="imageview">
+                    ${character.get_image_src ? `
                     <img class="imageview-image" 
-                         src="${character.get_image_src || ''}" 
+                         src="${character.get_image_src}" 
                          alt="${character.title}">
+                    ` : ''}
                     <div class="imageview-info">
                         <button class="imageview-close">×</button>
-                        <h2>${character.title}</h2>
-                        <p>${character.summary || ''}</p>
-                        <h3>Keywords</h3>
-                        <ul>
+                        <h2 class="imageview-title">${character.title}</h2>
+                        <p class="imageview-description">${character.summary}</p>
+                        <h3 class="imageview-tags-label">TAGS</h3>
+                        <ul class="imageview-tags">
                             ${character.keywords ? character.keywords.split(',').map(keyword => 
-                                `<li>${keyword.trim()}</li>`
-                            ).join('') : '<li>No keywords</li>'}
+                                `<li class="imageview-tag">${keyword.trim()}</li>`
+                            ).join('') : '<li class="imageview-tag">No tags</li>'}
                         </ul>
                     </div>
                 </div>
             </div>
         `;
 
-        // Ocultar la galería principal
         const mainContent = this.container.querySelector('h1, p, .grid');
         if (mainContent) {
             mainContent.style.display = 'none';
         }
 
-        // Insertar la vista de imagen
         this.container.insertAdjacentHTML('beforeend', imageViewHTML);
+        document.body.style.overflow = 'hidden';
     }
 
     closeImageView() {
         this.imageView = false;
         
-        // Remover la vista de imagen
         const imageView = this.container.querySelector('.imageview-wrapper');
         if (imageView) {
             imageView.remove();
         }
 
-        // Mostrar la galería principal nuevamente
         const mainContent = this.container.querySelector('h1, p, .grid');
         if (mainContent) {
             mainContent.style.display = '';
         }
+        
+        document.body.style.overflow = '';
     }
 }
 
-// Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
     new CharacterGallery();
 });
