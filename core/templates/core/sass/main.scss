@@ -5,6 +5,7 @@
 @use 'skills';
 @use 'signup';
 @use 'carousel';
+@use 'gallery';
 
 * { box-sizing: border-box; }
 body { font-family: vars.$font-sans; margin:0; color:#222; background:vars.$bg; }
