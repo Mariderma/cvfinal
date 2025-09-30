@@ -17,22 +17,14 @@
       <article class="card" data-id="{{ c.slug }}">
         {% if c.get_image_src %}
         <img src="{{ c.get_image_src }}" alt="{{ c.title }}" class="card-image">
-        <div class="card-overlay">
-          <h3 class="card-title">{{ c.title }}</h3>
-          <p class="card-description">{{ c.summary|truncatewords:15 }}</p>
-        </div>
         {% endif %}
         <div class="card-content">
           <h3 class="card-title">{{ c.title }}</h3>
           <p class="card-summary">{{ c.summary }}</p>
-          <p class="keywords-label">TAGS</p>
-          <ul class="keywords-list">
-            {% if c.keywords %}
-              {% for keyword in c.keywords.split %}
-                <li class="keyword-tag">{{ keyword }}</li>
-              {% endfor %}
-            {% endif %}
-          </ul>
+          <div class="card-keywords">
+            <span class="keywords-label">Keywords:</span>
+            <span class="keywords-text">{{ c.keywords }}</span>
+          </div>
         </div>
       </article>
       {% endfor %}

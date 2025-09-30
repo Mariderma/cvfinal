@@ -1,18 +1,18 @@
-// _gallery.scss
-// Import fonts
+// _gallery.scss - Versión simplificada
 @import 'https://fonts.googleapis.com/css?family=Oswald:300|Slabo+27px';
 
-// Sassy stuff
+// Variables
 $white: #ffffff;
 $black: #333333;
 $dark-bg: #1a1a1a;
 $red: #e74c3c;
-$transblack: rgba(66,66,66,0.7);
 $light-gray: #f5f5f5;
+$card-bg: #fff;
 
+// Mixins
 @mixin header-font($size) {
     font: { 
-        family:'Oswald';
+        family: 'Oswald';
         size: $size;
         weight: 300;
     }
@@ -25,192 +25,126 @@ $light-gray: #f5f5f5;
         family: 'Slabo 27px';
         size: $size;
     }
-    line-height: 1.6;
+    line-height: 1.4;
 }
 
-// Base Styles
-body, html {
-    width: 100%;
-    height: 100%;
+// Estilos base para la galería
+body {
+    background: $dark-bg;
     margin: 0;
     padding: 0;
-    background: $dark-bg;
 }
 
-:root {
-    @include body-font(14px);
-    color: $black;
-}
-
-// Container
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-// Header
 h1 {
     @include header-font(2.5rem);
-    margin-bottom: 1rem;
     text-align: center;
     color: $white;
+    margin-bottom: 1rem;
 }
 
 p {
     @include body-font(1.1rem);
     text-align: center;
-    margin-bottom: 2rem;
     color: #ccc;
+    margin-bottom: 2rem;
 }
 
-// Grid Layout
+// Grid y Cards básicas
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
     padding: 1rem 0;
 }
 
-// Cards - Estilo similar a la imagen
 .card {
-    background: $white;
-    border-radius: 12px;
+    background: $card-bg;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
-    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     cursor: pointer;
 
     &:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-
-        .card-image {
-            transform: scale(1.08);
-            filter: brightness(0.7);
-        }
-
-        .card-overlay {
-            opacity: 1;
-        }
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 }
 
-// Card Image
 .card-image {
     width: 100%;
-    height: 250px;
+    height: 200px;
     object-fit: cover;
-    transition: all 0.4s ease-in-out;
     display: block;
 }
 
-// Card Overlay - SOLO visible al hover
-.card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 250px; // Solo cubre la imagen
-    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.5rem;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    pointer-events: none; // Permite click en la imagen
-}
-
-.card-title {
-    @include header-font(1.5rem);
-    color: $white;
-    margin: 0 0 0.5rem 0;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.card-description {
-    @include body-font(0.9rem);
-    color: #ccc;
-    margin: 0;
-    line-height: 1.4;
-}
-
-// Card Content (parte inferior - SIEMPRE visible)
 .card-content {
     padding: 1.5rem;
 }
 
+.card-title {
+    @include header-font(1.3rem);
+    margin: 0 0 0.8rem 0;
+    color: $black;
+}
+
 .card-summary {
-    @include body-font(0.95rem);
-    margin: 0 0 1rem 0;
+    @include body-font(0.9rem);
     color: #666;
+    margin: 0 0 1rem 0;
     line-height: 1.5;
 }
 
-.keywords-label {
-    @include header-font(0.8rem);
-    color: #999;
-    margin: 0 0 0.5rem 0;
-    letter-spacing: 0.05em;
-}
-
-.keywords-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.keyword-tag {
-    background: $light-gray;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
+.card-keywords {
     @include body-font(0.8rem);
+    color: #888;
+}
+
+.keywords-label {
+    font-weight: bold;
     color: #666;
 }
 
-// Image View Modal (Vista detallada)
+// Modal de vista detalle
 .imageview-wrapper {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    backdrop-filter: blur(5px);
 }
 
 .imageview {
     display: flex;
-    max-width: 90%;
-    max-height: 90%;
     background: $white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .imageview-image {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
 }
 
 .imageview-info {
-    max-width: 400px;
-    padding: 2.5rem;
+    padding: 2rem;
+    flex: 1;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .imageview-close {
@@ -221,109 +155,75 @@ p {
     color: $white;
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
 
     &:hover {
         background: darken($red, 10%);
-        transform: scale(1.1);
     }
 }
 
 .imageview-title {
-    @include header-font(2rem);
+    @include header-font(1.8rem);
     margin: 0 0 1rem 0;
     color: $black;
 }
 
 .imageview-description {
-    @include body-font(1.1rem);
-    margin: 0 0 2rem 0;
+    @include body-font(1rem);
     color: #666;
+    margin: 0 0 1.5rem 0;
     line-height: 1.6;
 }
 
-.imageview-tags-label {
-    @include header-font(1rem);
-    color: #999;
-    margin: 0 0 1rem 0;
-}
-
-.imageview-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.imageview-tag {
-    background: $light-gray;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
+.imageview-keywords {
     @include body-font(0.9rem);
-    color: #666;
+    color: #888;
 }
 
-// Animations
-.fadeIn { 
-    animation: fade 0.4s ease-in-out forwards; 
+// Animación
+.fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
 }
 
-@keyframes fade {
-    0% { opacity: 0; transform: scale(0.9); }
-    100% { opacity: 1; transform: scale(1); }
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-// Responsive adjustments
-@media screen and (max-width: 768px){
+// Responsive
+@media (max-width: 768px) {
     .grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 1.5rem;
     }
     
     .container {
         padding: 1rem;
     }
-
+    
     .imageview {
         flex-direction: column;
-        max-width: 95%;
+        max-width: 90%;
     }
-
+    
     .imageview-image {
         width: 100%;
-        height: 300px;
-    }
-
-    .imageview-info {
-        max-width: 100%;
-        padding: 1.5rem;
+        height: 200px;
     }
 }
 
-@media screen and (max-width: 480px){
+@media (max-width: 480px) {
     .grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
     }
-
+    
     h1 {
         @include header-font(2rem);
-    }
-    
-    .card-overlay {
-        padding: 1rem;
-    }
-    
-    .card-title {
-        @include header-font(1.2rem);
     }
 }
