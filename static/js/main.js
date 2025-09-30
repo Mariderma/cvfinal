@@ -2,11 +2,11 @@
 function animateSkillBars() {
     const skillProgresses = document.querySelectorAll('.skill-progress');
     
-    skillProgresses.forEach(progress => {
+    skillProgresses.forEach((progress, index) => {
         const percentage = progress.getAttribute('data-percentage');
         setTimeout(() => {
             progress.style.width = percentage + '%';
-        }, 100);
+        }, index * 100); // Retraso escalonado para mejor efecto
     });
 }
 
@@ -24,8 +24,8 @@ function initSkillsAnimation() {
             }
         });
     }, { 
-        threshold: 0.3,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.2,
+        rootMargin: '0px 0px -30px 0px'
     });
     
     observer.observe(skillsSection);

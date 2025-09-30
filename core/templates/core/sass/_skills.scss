@@ -1,52 +1,39 @@
 @use 'variables' as vars;
 
 .skills {
-    margin-top: vars.$space-6;
-    padding: vars.$space-5 0;
+    margin-top: vars.$space-4;
+    padding: vars.$space-4 0;
     
     h2 {
         text-align: center;
-        margin-bottom: vars.$space-6;
+        margin-bottom: vars.$space-5;
         color: vars.$dark;
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         font-weight: 700;
-        position: relative;
-        
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: vars.$primary;
-        }
     }
 }
 
 // Categorías de habilidades
 .skills-categories {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: vars.$space-5;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: vars.$space-4;
     margin-bottom: vars.$space-6;
 }
 
 .skills-category {
     background: white;
     padding: vars.$space-4;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     
     h3 {
         color: vars.$dark;
-        margin-bottom: vars.$space-4;
-        font-size: 1.3rem;
+        margin-bottom: vars.$space-3;
+        font-size: 1.2rem;
         font-weight: 600;
         padding-bottom: vars.$space-2;
-        border-bottom: 2px solid vars.$primary;
+        border-bottom: 1px solid #e9ecef;
     }
 }
 
@@ -61,7 +48,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: vars.$space-2;
+        margin-bottom: 6px;
     }
     
     .skill-name {
@@ -79,39 +66,19 @@
 
 .skill-bar {
     width: 100%;
-    height: 6px;
+    height: 12px;
     background: #f1f3f4;
-    border-radius: 10px;
+    border-radius: 6px;
     overflow: hidden;
     position: relative;
 }
 
 .skill-progress {
     height: 100%;
-    background: vars.$primary;
-    border-radius: 10px;
+    background: linear-gradient(90deg, vars.$primary, lighten(vars.$primary, 10%));
+    border-radius: 6px;
     width: 0;
-    transition: width 1.2s ease-in-out;
-    position: relative;
-    
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(90deg, 
-            transparent, 
-            rgba(255, 255, 255, 0.6), 
-            transparent);
-        animation: shimmer 2s infinite;
-    }
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    transition: width 1s ease-in-out;
 }
 
 // Sección de Certificaciones
@@ -120,22 +87,10 @@
     
     h3 {
         text-align: center;
-        margin-bottom: vars.$space-5;
+        margin-bottom: vars.$space-4;
         color: vars.$dark;
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 700;
-        position: relative;
-        
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 2px;
-            background: vars.$primary;
-        }
     }
 }
 
@@ -149,16 +104,10 @@
 
 .certification-item {
     background: white;
-    padding: vars.$space-5;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e9ecef;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    }
+    padding: vars.$space-4;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid vars.$primary;
 }
 
 .certification-header {
@@ -167,7 +116,7 @@
     h4 {
         color: vars.$dark;
         margin: 0 0 vars.$space-2 0;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 600;
         line-height: 1.4;
     }
@@ -181,15 +130,15 @@
     .certification-company {
         color: vars.$primary;
         font-weight: 600;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
     
     .certification-year {
         color: #6c757d;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         background: #f8f9fa;
         padding: 2px 8px;
-        border-radius: 12px;
+        border-radius: 10px;
     }
 }
 
@@ -201,18 +150,18 @@
         
         .duration, .modality {
             color: #6c757d;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             background: #f8f9fa;
-            padding: 4px 12px;
-            border-radius: 15px;
+            padding: 3px 10px;
+            border-radius: 12px;
         }
     }
     
     .certification-description {
         color: #555;
-        line-height: 1.6;
+        line-height: 1.5;
         margin: 0;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -220,7 +169,7 @@
 @media (max-width: 768px) {
     .skills-categories {
         grid-template-columns: 1fr;
-        gap: vars.$space-4;
+        gap: vars.$space-3;
     }
     
     .skills-category {
@@ -228,28 +177,32 @@
     }
     
     .certification-item {
-        padding: vars.$space-4;
+        padding: vars.$space-3;
     }
     
     .certification-meta,
     .certification-info {
         flex-direction: column;
         align-items: flex-start;
-        gap: vars.$space-2;
+        gap: vars.$space-1;
     }
     
     .skills h2,
     .certifications-section h3 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 }
 
 @media (max-width: 480px) {
     .skills {
-        padding: vars.$space-4 0;
+        padding: vars.$space-3 0;
     }
     
     .certification-header h4 {
-        font-size: 1.1rem;
+        font-size: 1rem;
+    }
+    
+    .skill-bar {
+        height: 10px;
     }
 }
